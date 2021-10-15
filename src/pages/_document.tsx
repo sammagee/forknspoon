@@ -15,7 +15,10 @@ class Document extends NextDocument {
 
   render() {
     return (
-      <Html lang="en-US" className="font-sans dark:antialiased">
+      <Html
+        lang="en-US"
+        className="font-sans dark:antialiased selection:bg-gray-500 selection:bg-opacity-10"
+      >
         <Head>
           <link
             href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
@@ -25,7 +28,7 @@ class Document extends NextDocument {
           <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         </Head>
 
-        <body className="bg-gray-100">
+        <body className="bg-gray-50">
           <Main />
 
           <NextScript />

@@ -2,13 +2,12 @@ const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  mode: 'jit',
-  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        gray: colors.warmGray,
+        gray: colors.coolGray,
         brand: colors.red,
       },
       fontFamily: {
@@ -29,6 +28,25 @@ module.exports = {
           'Segoe UI Symbol',
           'Noto Color Emoji',
         ],
+      },
+      opacity: {
+        3: '0.03',
+      },
+      ringColor: (theme) => ({
+        DEFAULT: theme('colors.gray.500'),
+      }),
+      ringOffsetWidth: {
+        DEFAULT: '2px',
+      },
+      ringOpacity: (theme) => ({
+        DEFAULT: theme('opacity.50'),
+      }),
+      ringWidth: {
+        DEFAULT: '2px',
+      },
+      scale: {
+        98: '0.98',
+        102: '1.02',
       },
     },
     fill: (theme) => theme('colors'),
