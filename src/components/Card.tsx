@@ -94,7 +94,7 @@ const Card: FC<Props> = ({ children, drag, onVote, id }) => {
     >
       <div
         className={clsx(
-          'py-56 bg-white shadow-lg rounded-xl transform transition-transform duration-150 ease-in-out',
+          'py-56 bg-white dark:bg-gray-600 shadow-lg rounded-xl transform transition-transform duration-150 ease-in-out cursor-[grab] active:cursor-[grabbing]',
           drag && '!rotate-0'
         )}
         style={{

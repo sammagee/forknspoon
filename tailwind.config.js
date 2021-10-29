@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: colors.coolGray,
+        gray: colors.zinc,
         brand: colors.red,
       },
       fontFamily: {
@@ -36,7 +36,7 @@ module.exports = {
         DEFAULT: theme('colors.gray.500'),
       }),
       ringOffsetWidth: {
-        DEFAULT: '2px',
+        DEFAULT: '0',
       },
       ringOpacity: (theme) => ({
         DEFAULT: theme('opacity.50'),

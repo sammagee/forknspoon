@@ -15,7 +15,6 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   children: ReactChild[] | ReactChild | string
   flat?: boolean
   icon?: IconName
-  offsetClassName?: string
   variant?: ButtonVariantType
 }
 
@@ -25,11 +24,11 @@ export const buttonClasses =
 export const buttonColors = (variant: ButtonVariantType) =>
   ({
     [ButtonVariant.Primary]:
-      'text-white bg-gray-800 active:bg-gray-700 hover:bg-gray-700',
+      'text-white bg-gray-900 active:opacity-75 hover:opacity-75',
     [ButtonVariant.Secondary]:
-      'text-gray-900 text-opacity-50 bg-gray-900 bg-opacity-3 hover:bg-opacity-5 hover:text-opacity-75',
+      'text-gray-900 dark:text-white text-opacity-50 dark:text-opacity-50 bg-gray-900 bg-opacity-3 dark:bg-black dark:bg-opacity-20 hover:bg-opacity-5 dark:hover:bg-opacity-25 hover:text-opacity-75 dark:hover:text-opacity-75',
     [ButtonVariant.Tertiary]:
-      'text-gray-900 text-opacity-50 bg-gray-900 bg-opacity-0 hover:bg-opacity-3 hover:text-opacity-75',
+      'text-gray-900 dark:text-white text-opacity-50 dark:text-opacity-50 bg-gray-900 bg-opacity-0 dark:bg-black dark:bg-opacity-0 hover:bg-opacity-3 dark:hover:bg-opacity-20 hover:text-opacity-75 dark:hover:text-opacity-75',
   }[variant])
 
 const Button: FC<ButtonProps> = ({
@@ -37,7 +36,6 @@ const Button: FC<ButtonProps> = ({
   children,
   flat = false,
   icon,
-  offsetClassName,
   variant = ButtonVariant.Primary,
 }) => {
   return (
@@ -46,7 +44,6 @@ const Button: FC<ButtonProps> = ({
         buttonClasses,
         buttonColors(variant),
         !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
-        offsetClassName,
         className
       )}
     >

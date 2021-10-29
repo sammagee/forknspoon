@@ -18,7 +18,6 @@ const IconButton: FC<IconButtonProps> = ({
   iconClassName,
   flat = false,
   name,
-  offsetClassName,
   variant = ButtonVariant.Primary,
 }) => {
   return (
@@ -27,7 +26,6 @@ const IconButton: FC<IconButtonProps> = ({
         iconButtonClasses,
         buttonColors(variant),
         !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
-        offsetClassName,
         className
       )}
     >

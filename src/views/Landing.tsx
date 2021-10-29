@@ -16,7 +16,7 @@ const Landing: FC = () => {
 
       <main className="grid w-screen min-h-screen place-items-center">
         <Link href="/">
-          <a className="flex items-center pr-4 ml-4 space-x-4 text-2xl font-bold focus:outline-none focus-visible:ring-4 rounded-xl focus-visible:ring-gray-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-8 focus-visible:ring-offset-gray-100">
+          <a className="flex items-center pr-4 ml-4 space-x-4 text-2xl font-bold focus:outline-none focus-visible:ring-4 rounded-xl focus-visible:ring-gray-500 focus-visible:ring-opacity-50">
             <span className="inline-flex items-center justify-center p-4 bg-white shadow-xl rounded-xl">
               <Logo className="w-12 h-12 text-gray-700" />
             </span>

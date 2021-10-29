@@ -31,35 +31,15 @@ const App: FC = () => {
 
             <footer className="flex items-center justify-between w-full max-w-md mx-auto mt-6 space-x-3">
               <div className="space-x-3">
-                <IconButton
-                  name="undo"
-                  offsetClassName="focus-visible:offset-gray-50"
-                  variant="secondary"
-                  flat
-                />
+                <IconButton name="undo" variant="secondary" flat />
 
-                <IconButton
-                  name="shuffle"
-                  offsetClassName="focus-visible:offset-gray-50"
-                  variant="secondary"
-                  flat
-                />
+                <IconButton name="shuffle" variant="secondary" flat />
               </div>
 
               <div className="space-x-3">
-                <IconButton
-                  name="x"
-                  offsetClassName="focus-visible:offset-gray-50"
-                  variant="secondary"
-                  flat
-                />
+                <IconButton name="x" variant="secondary" flat />
 
-                <IconButton
-                  name="star"
-                  offsetClassName="focus-visible:offset-gray-50"
-                  variant="secondary"
-                  flat
-                />
+                <IconButton name="star" variant="secondary" flat />
               </div>
             </footer>
           </section>

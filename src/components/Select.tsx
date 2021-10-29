@@ -12,7 +12,6 @@ type SelectOption = {
 interface SelectProps {
   label?: string
   description?: string
-  offsetClassName?: string
   onChange(value: SelectOption): void
   options: SelectOption[]
   value: SelectOption
@@ -21,7 +20,6 @@ interface SelectProps {
 const Select: VFC<SelectProps> = ({
   label,
   description,
-  offsetClassName,
   onChange,
   options,
   value,
@@ -29,25 +27,26 @@ const Select: VFC<SelectProps> = ({
   return (
     <HListbox value={value} onChange={onChange}>
       {label && (
-        <HListbox.Label className="mx-3 text-sm text-gray-600">
+        <HListbox.Label className="mx-3 text-sm text-gray-600 dark:text-gray-400">
           {label}
         </HListbox.Label>
       )}
       {description && (
-        <p className="mx-3 text-xs text-gray-400">{description}</p>
+        <p className="mx-3 text-xs text-gray-400 dark:text-gray-500">
+          {description}
+        </p>
       )}
 
       <div className="relative mt-1">
         <HListbox.Button
           className={clsx(
-            'relative flex items-center justify-between w-full h-12 px-5 text-sm text-left text-gray-900 transition duration-150 ease-in-out origin-bottom transform bg-gray-900 cursor-pointer rounded-xl bg-opacity-3 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50 hover:bg-opacity-5 hover:scale-102 active:scale-98',
-            offsetClassName
+            'relative flex items-center justify-between w-full h-12 px-5 text-sm text-left text-gray-900 dark:text-gray-300 transition duration-150 ease-in-out origin-bottom transform bg-gray-900 dark:bg-black dark:bg-opacity-20 cursor-pointer rounded-xl bg-opacity-3 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50 hover:bg-opacity-5 dark:hover:bg-opacity-25 hover:scale-102 active:scale-98'
           )}
         >
           <span className="font-medium truncate">{value.display}</span>
 
           <Icon
-            className="w-4 h-4 text-gray-900 text-opacity-50"
+            className="w-4 h-4 text-gray-900 text-opacity-50 dark:text-gray-300 dark:text-opacity-50"
             name="chevronDown"
           />
         </HListbox.Button>
@@ -58,14 +57,15 @@ const Select: VFC<SelectProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <HListbox.Options className="absolute z-10 w-full p-1 mt-2 overflow-auto text-sm bg-white shadow-lg rounded-xl max-h-60 focus:outline-none">
+          <HListbox.Options className="absolute z-10 w-full p-1 mt-2 overflow-auto text-sm bg-white shadow-lg dark:bg-gray-600 rounded-xl max-h-60 focus:outline-none">
             {options.map((option, idx) => (
               <HListbox.Option
                 key={idx}
                 className={({ active }) =>
                   clsx(
-                    'cursor-pointer select-none relative py-2 pr-10 pl-4 text-gray-900 rounded-lg',
-                    active && 'bg-gray-900 bg-opacity-3'
+                    'cursor-pointer select-none relative py-2 pr-10 pl-4 text-gray-900 dark:text-gray-300 rounded-lg',
+                    active &&
+                      'bg-gray-900 bg-opacity-3 dark:bg-black dark:bg-opacity-20'
                   )
                 }
                 value={option}

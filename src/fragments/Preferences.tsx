@@ -10,9 +10,9 @@ const Preferences: FC = () => {
   const [restriction, setRestriction] = useState(preferences.restrictions[0])
 
   return (
-    <aside className="flex flex-col w-full max-w-xs px-4 py-4 bg-gray-100">
+    <aside className="flex-col hidden w-full max-w-xs px-4 py-4 bg-gray-100 dark:bg-gray-800 lg:flex">
       <header className="flex items-center h-12 ml-3">
-        <h2 className="text-sm font-medium text-gray-600 uppercase">
+        <h2 className="text-sm font-medium text-gray-600 uppercase dark:text-gray-400">
           Preferences
         </h2>
       </header>
@@ -31,7 +31,6 @@ const Preferences: FC = () => {
         <Select
           label="Cuisine"
           description="What sort of cuisine would you like?"
-          offsetClassName="focus-visible:ring-offset-gray-100"
           onChange={setCuisine}
           options={preferences.cuisines}
           value={cuisine}
@@ -42,7 +41,6 @@ const Preferences: FC = () => {
         <Select
           label="Dietary Restrictions"
           description="Any dietary restrictions?"
-          offsetClassName="focus-visible:ring-offset-gray-100"
           onChange={setRestriction}
           options={preferences.restrictions}
           value={restriction}
@@ -50,12 +48,7 @@ const Preferences: FC = () => {
       </div>
 
       <div className="flex flex-col justify-end flex-1">
-        <Button
-          icon="logo"
-          offsetClassName="focus-visible:ring-offset-gray-100"
-        >
-          Let&apos;s eat
-        </Button>
+        <Button icon="logo">Let&apos;s eat</Button>
       </div>
     </aside>
   )

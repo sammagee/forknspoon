@@ -28,7 +28,7 @@ class Document extends NextDocument {
           <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         </Head>
 
-        <body className="bg-gray-50">
+        <body className="bg-gray-50 dark:bg-gray-700">
           <Main />
 
           <NextScript />

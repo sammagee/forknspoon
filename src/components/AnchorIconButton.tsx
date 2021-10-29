@@ -17,7 +17,6 @@ const AnchorIconButton: FC<AnchorIconButtonProps> = ({
   flat = false,
   href,
   name,
-  offsetClassName,
   variant = ButtonVariant.Primary,
   ...anchorProps
 }) => {
@@ -28,7 +27,6 @@ const AnchorIconButton: FC<AnchorIconButtonProps> = ({
           iconButtonClasses,
           buttonColors(variant),
           !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
-          offsetClassName,
           className
         )}
         {...anchorProps}

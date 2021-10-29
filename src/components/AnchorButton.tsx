@@ -19,7 +19,6 @@ const AnchorButton: VFC<AnchorButtonProps> = ({
   flat = false,
   href,
   icon,
-  offsetClassName,
   variant = ButtonVariant.Primary,
   ...anchorProps
 }) => {
@@ -30,7 +29,6 @@ const AnchorButton: VFC<AnchorButtonProps> = ({
           buttonClasses,
           buttonColors(variant),
           !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
-          offsetClassName,
           className
         )}
         {...anchorProps}
