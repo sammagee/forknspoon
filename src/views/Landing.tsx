@@ -17,13 +17,15 @@ const Landing: FC = () => {
       <main className="grid w-screen min-h-screen place-items-center">
         <Link href="/">
           <a className="flex items-center pr-4 ml-4 space-x-4 text-2xl font-bold focus:outline-none focus-visible:ring-4 rounded-xl focus-visible:ring-gray-500 focus-visible:ring-opacity-50">
-            <span className="inline-flex items-center justify-center p-4 bg-white shadow-xl rounded-xl">
+            <span className="inline-flex items-center justify-center p-4 bg-white shadow-xl dark:bg-gray-800 rounded-xl">
               <Logo className="w-12 h-12 text-gray-700" />
             </span>
 
             <div className="flex flex-col items-start space-y-1">
-              <span>Fork &amp; Spoon</span>
-              <span className="px-3 py-1 text-xs text-gray-700 uppercase bg-gray-200 rounded-full">
+              <span className="text-gray-900 dark:text-white">
+                Fork &amp; Spoon
+              </span>
+              <span className="px-3 py-1 text-xs text-gray-700 uppercase bg-gray-200 rounded-full dark:text-gray-500 dark:bg-gray-800">
                 Coming Soon
               </span>
             </div>

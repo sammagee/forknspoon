@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
-import { useState } from 'react'
+import { useAuth } from '../hooks/useAuth'
 import App from '../views/App'
 import Landing from '../views/Landing'
 
 const Home: NextPage = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const { isLoggedIn } = useAuth()
 
   return isLoggedIn ? <App /> : <Landing />
 }

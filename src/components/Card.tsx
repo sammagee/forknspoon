@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import { motion, useAnimation, useMotionValue } from 'framer-motion'
 import { FC, ReactChild, useEffect, useRef, useState } from 'react'
-import IconButton from './IconButton'
 
 interface Props {
   children?: ReactChild[] | ReactChild
@@ -94,7 +93,7 @@ const Card: FC<Props> = ({ children, drag, onVote, id }) => {
     >
       <div
         className={clsx(
-          'py-56 bg-white dark:bg-gray-600 shadow-lg rounded-xl transform transition-transform duration-150 ease-in-out cursor-[grab] active:cursor-[grabbing]',
+          'shadow-lg rounded-xl overflow-hidden transform transition-transform duration-150 ease-in-out cursor-[grab] active:cursor-[grabbing]',
           drag && '!rotate-0'
         )}
         style={{
@@ -102,13 +101,6 @@ const Card: FC<Props> = ({ children, drag, onVote, id }) => {
         }}
       >
         {children}
-
-        <IconButton
-          className="absolute right-4 bottom-4"
-          name="info"
-          variant="secondary"
-          flat
-        />
       </div>
     </motion.div>
   )
