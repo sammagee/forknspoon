@@ -3,19 +3,23 @@ import { useEffect } from 'react'
 import useSWR from 'swr'
 import axios from '../lib/axios'
 import { Error } from '../types/Error'
+import { LoginRequest } from '../types/Requests/LoginRequest'
+import { RegisterRequest } from '../types/Requests/RegisterRequest'
 import { Response } from '../types/Response'
 import { User } from '../types/User'
 
-export const useAuth = ({ middleware }: { middleware?: string } = {}) => {
+export const useAuth = ({
+  middleware,
+}: { middleware?: 'auth' | 'guest' } = {}) => {
   const router = useRouter()
 
   const {
     data: user,
     error,
     mutate,
-  } = useSWR('/api/user', () =>
+  } = useSWR('/user', () =>
     axios
-      .get('/api/user')
+      .get('/user')
       .then((res: Response<User>) => res.data)
       .catch((error: Error) => {
         if (error.response.status !== 409) throw error
@@ -26,12 +30,7 @@ export const useAuth = ({ middleware }: { middleware?: string } = {}) => {
 
   const csrf = () => axios.get('/sanctum/csrf-cookie')
 
-  const register = async ({
-    setErrors,
-    ...props
-  }: {
-    setErrors(errors: string[]): void
-  }) => {
+  const register = async ({ setErrors, ...props }: RegisterRequest) => {
     await csrf()
 
     axios
@@ -44,12 +43,7 @@ export const useAuth = ({ middleware }: { middleware?: string } = {}) => {
       .then(() => mutate())
   }
 
-  const login = async ({
-    setErrors,
-    ...props
-  }: {
-    setErrors(errors: string[]): void
-  }) => {
+  const login = async ({ setErrors, ...props }: LoginRequest) => {
     await csrf()
 
     axios
@@ -122,11 +116,13 @@ export const useAuth = ({ middleware }: { middleware?: string } = {}) => {
   }
 
   useEffect(() => {
+    if (middleware === 'guest' && user) router.push('/')
     if (middleware === 'auth' && error) logout()
   }, [error]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return {
     isLoggedIn: !!user,
+    error,
     user,
     register,
     login,

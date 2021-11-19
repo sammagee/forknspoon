@@ -1,9 +1,10 @@
-import { IconName } from '../src/components/Icon'
+import { DocumentTextIcon, OfficeBuildingIcon } from '@heroicons/react/solid'
+import { ReactNode } from 'react'
 
 interface Preference {
   display: string
   value: string | null
-  icon?: IconName
+  icon?: ((className: string) => ReactNode) | ReactNode
 }
 
 interface Preferences {
@@ -108,12 +109,12 @@ const preferences: Preferences = {
     {
       display: 'Recipe',
       value: 'recipe',
-      icon: 'recipe',
+      icon: (cn) => <DocumentTextIcon className={cn} />,
     },
     {
       display: 'Restaurant',
       value: 'restaurant',
-      icon: 'restaurant',
+      icon: (cn) => <OfficeBuildingIcon className={cn} />,
     },
   ],
 

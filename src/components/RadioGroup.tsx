@@ -1,12 +1,11 @@
 import { RadioGroup as HRadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
-import { VFC } from 'react'
-import Icon, { IconName } from './Icon'
+import { ReactNode, VFC } from 'react'
 
 type RadioGroupOption = {
   display: string
   value: string | null
-  icon?: IconName
+  icon?: ((className: string) => ReactNode) | ReactNode
 }
 
 interface RadioGroupProps {
@@ -68,12 +67,9 @@ const RadioGroup: VFC<RadioGroupProps> = ({
                     </HRadioGroup.Label>
                   </div>
 
-                  {option.icon && (
-                    <Icon
-                      className="w-4 h-4 text-gray-400 dark:text-gray-500"
-                      name={option.icon}
-                    />
-                  )}
+                  {typeof option.icon === 'function'
+                    ? option.icon('w-4 h-4 text-gray-400 dark:text-gray-500')
+                    : option.icon}
                 </div>
               </>
             )}

@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import preferences from '../../config/preferences'
 import Button from '../components/Button'
+import Logo from '../components/Logo'
 import RadioGroup from '../components/RadioGroup'
 import Select from '../components/Select'
 
@@ -48,7 +49,7 @@ const Preferences: FC = () => {
       </div>
 
       <div className="flex flex-col justify-end flex-1">
-        <Button icon="logo">Let&apos;s eat</Button>
+        <Button icon={(cn) => <Logo className={cn} />}>Let&apos;s eat</Button>
       </div>
     </aside>
   )

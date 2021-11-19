@@ -1,12 +1,12 @@
 import { Listbox as HListbox, Transition } from '@headlessui/react'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
-import { Fragment, VFC } from 'react'
-import Icon, { IconName } from './Icon'
+import { Fragment, ReactNode, VFC } from 'react'
 
 type SelectOption = {
   display: string
   value: string | null
-  icon?: IconName
+  icon?: ((className: string) => ReactNode) | ReactNode
 }
 
 interface SelectProps {
@@ -45,19 +45,22 @@ const Select: VFC<SelectProps> = ({
         >
           <span className="font-medium truncate">{value.display}</span>
 
-          <Icon
-            className="w-4 h-4 text-gray-900 text-opacity-50 dark:text-gray-300 dark:text-opacity-50"
-            name="chevronDown"
-          />
+          <ChevronDownIcon className="w-4 h-4 text-gray-900 text-opacity-50 dark:text-gray-300 dark:text-opacity-50" />
         </HListbox.Button>
 
         <Transition
           as={Fragment}
-          leave="transition ease-in duration-100"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+          enter="transition duration-100 ease-out"
+          enterFrom="transform scale-95 opacity-0"
+          enterTo="transform scale-100 opacity-100"
+          leave="transition duration-75 ease-out"
+          leaveFrom="transform scale-100 opacity-100"
+          leaveTo="transform scale-95 opacity-0"
         >
-          <HListbox.Options className="absolute z-10 w-full p-1 mt-2 overflow-auto text-sm bg-white shadow-lg dark:bg-gray-600 rounded-xl max-h-60 focus:outline-none">
+          <HListbox.Options
+            className="absolute z-10 w-full p-1 mt-2 overflow-auto text-sm origin-top transform bg-white shadow-lg dark:bg-gray-600 rounded-xl max-h-60 focus:outline-none"
+            static
+          >
             {options.map((option, idx) => (
               <HListbox.Option
                 key={idx}
@@ -83,8 +86,7 @@ const Select: VFC<SelectProps> = ({
 
                     {selected ? (
                       <span className="absolute inset-y-0 right-0 flex items-center pr-4">
-                        <Icon
-                          name="check"
+                        <CheckIcon
                           className="w-4 h-4 text-gray-500"
                           aria-hidden="true"
                         />

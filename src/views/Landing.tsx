@@ -1,11 +1,10 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import { FC } from 'react'
-import Logo from '../components/Logo'
+import GuestLayout from '../layouts/guest/Layout'
 
 const Landing: FC = () => {
   return (
-    <>
+    <GuestLayout>
       <Head>
         <title>Fork &amp; Spoon</title>
         <meta
@@ -14,25 +13,20 @@ const Landing: FC = () => {
         />
       </Head>
 
-      <main className="grid w-screen min-h-screen place-items-center">
-        <Link href="/">
-          <a className="flex items-center pr-4 ml-4 space-x-4 text-2xl font-bold focus:outline-none focus-visible:ring-4 rounded-xl focus-visible:ring-gray-500 focus-visible:ring-opacity-50">
-            <span className="inline-flex items-center justify-center p-4 bg-white shadow-xl dark:bg-gray-800 rounded-xl">
-              <Logo className="w-12 h-12 text-gray-700" />
-            </span>
-
-            <div className="flex flex-col items-start space-y-1">
-              <span className="text-gray-900 dark:text-white">
-                Fork &amp; Spoon
-              </span>
-              <span className="px-3 py-1 text-xs text-gray-700 uppercase bg-gray-200 rounded-full dark:text-gray-500 dark:bg-gray-800">
-                Coming Soon
-              </span>
-            </div>
-          </a>
-        </Link>
-      </main>
-    </>
+      <section className="grid py-32 md:py-48 lg:py-64 place-items-center">
+        <div className="flex flex-col items-center space-y-3">
+          <span className="px-3 py-1 text-xs font-semibold text-gray-700 uppercase bg-gray-200 rounded-full dark:text-gray-500 dark:bg-gray-800">
+            Coming Soon
+          </span>
+          <h1 className="font-bold text-gray-900 text-7xl dark:text-white">
+            Fork &amp; Spoon
+          </h1>
+          <h2 className="text-6xl font-medium text-transparent bg-clip-text bg-gradient-to-br from-gray-400 to-gray-600">
+            Eliminate food <br /> indecisiveness.
+          </h2>
+        </div>
+      </section>
+    </GuestLayout>
   )
 }
 

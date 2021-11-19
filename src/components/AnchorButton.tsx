@@ -7,7 +7,6 @@ import {
   ButtonProps,
   ButtonVariant,
 } from './Button'
-import Icon from './Icon'
 
 type AnchorButtonProps = ButtonProps &
   LinkProps &
@@ -36,7 +35,7 @@ const AnchorButton: VFC<AnchorButtonProps> = ({
         <div className="flex items-center justify-between flex-1">
           <span>{children}</span>
 
-          {icon && <Icon className="w-4 h-4" name={icon} />}
+          {typeof icon === 'function' ? icon('w-4 h-4') : icon}
         </div>
       </a>
     </Link>

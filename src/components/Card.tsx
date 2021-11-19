@@ -99,6 +99,7 @@ const Card: FC<Props> = ({ children, drag, onVote, id }) => {
         style={{
           transform: `rotate(${Math.random() * (5 - -5) + -5}deg)`,
         }}
+        suppressHydrationWarning
       >
         {children}
       </div>

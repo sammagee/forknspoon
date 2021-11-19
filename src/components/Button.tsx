@@ -1,6 +1,5 @@
 import clsx from 'clsx'
-import { FC, HTMLAttributes, ReactChild } from 'react'
-import Icon, { IconName } from './Icon'
+import { FC, HTMLAttributes, ReactChild, ReactNode } from 'react'
 
 export enum ButtonVariant {
   Primary = 'primary',
@@ -11,10 +10,11 @@ export enum ButtonVariant {
 type ButtonVariantType = ButtonVariant | `${ButtonVariant}`
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  block?: boolean
   className?: string
   children: ReactChild[] | ReactChild | string
   flat?: boolean
-  icon?: IconName
+  icon?: ((className: string) => ReactNode) | ReactNode
   variant?: ButtonVariantType
 }
 
@@ -32,6 +32,7 @@ export const buttonColors = (variant: ButtonVariantType) =>
   }[variant])
 
 const Button: FC<ButtonProps> = ({
+  block,
   className,
   children,
   flat = false,
@@ -44,13 +45,14 @@ const Button: FC<ButtonProps> = ({
         buttonClasses,
         buttonColors(variant),
         !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
+        block && 'w-full',
         className
       )}
     >
       <div className="flex items-center justify-between flex-1">
         <span>{children}</span>
 
-        {icon && <Icon className="w-4 h-4" name={icon} />}
+        {typeof icon === 'function' ? icon('w-4 h-4') : icon}
       </div>
     </button>
   )

@@ -29,6 +29,9 @@ module.exports = {
           'Noto Color Emoji',
         ],
       },
+      maxWidth: {
+        '2xs': '14rem',
+      },
       opacity: {
         3: '0.03',
       },

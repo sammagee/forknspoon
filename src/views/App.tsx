@@ -1,9 +1,16 @@
+import {
+  InformationCircleIcon,
+  RefreshIcon,
+  ReplyIcon,
+  StarIcon,
+  XIcon,
+} from '@heroicons/react/outline'
 import Head from 'next/head'
 import { FC } from 'react'
 import CardStack from '../components/CardStack'
 import IconButton from '../components/IconButton'
 import Preferences from '../fragments/Preferences'
-import AppLayout from '../layout/AppLayout'
+import AppLayout from '../layouts/app/Layout'
 
 const App: FC = () => {
   const images = [
@@ -52,7 +59,9 @@ const App: FC = () => {
 
                         <IconButton
                           className="absolute right-4 bottom-4"
-                          name="info"
+                          icon={(cn) => (
+                            <InformationCircleIcon className={cn} />
+                          )}
                           variant="secondary"
                           flat
                         />
@@ -65,15 +74,31 @@ const App: FC = () => {
 
             <footer className="flex items-center justify-between w-full max-w-md mx-auto mt-6 space-x-3">
               <div className="space-x-3">
-                <IconButton name="undo" variant="secondary" flat />
+                <IconButton
+                  icon={(cn) => <ReplyIcon className={cn} />}
+                  variant="secondary"
+                  flat
+                />
 
-                <IconButton name="shuffle" variant="secondary" flat />
+                <IconButton
+                  icon={(cn) => <RefreshIcon className={cn} />}
+                  variant="secondary"
+                  flat
+                />
               </div>
 
               <div className="space-x-3">
-                <IconButton name="x" variant="secondary" flat />
+                <IconButton
+                  icon={(cn) => <XIcon className={cn} />}
+                  variant="secondary"
+                  flat
+                />
 
-                <IconButton name="star" variant="secondary" flat />
+                <IconButton
+                  icon={(cn) => <StarIcon className={cn} />}
+                  variant="secondary"
+                  flat
+                />
               </div>
             </footer>
           </section>
