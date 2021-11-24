@@ -17,7 +17,7 @@ const Register: NextPage = () => {
   const [errors, setErrors] = useState<string[]>([])
 
   return (
-    <GuestLayout>
+    <GuestLayout title="Register">
       <AuthForm
         onSubmit={() =>
           register({ name, email, password, password_confirmation, setErrors })

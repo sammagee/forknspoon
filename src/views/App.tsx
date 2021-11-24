@@ -22,89 +22,84 @@ const App: FC = () => {
   ]
 
   return (
-    <>
+    <AppLayout>
       <Head>
-        <title>Fork &amp; Spoon</title>
         <meta
           name="description"
           content="Eliminate your food indecisiveness, save and share recipes, and more."
         />
       </Head>
 
-      <AppLayout>
-        <div className="flex flex-1">
-          <Preferences />
+      <div className="flex flex-1">
+        <Preferences />
 
-          <section className="relative flex flex-col justify-center flex-1 p-4">
-            <div className="flex items-center justify-center flex-1">
-              <CardStack onVote={(item, vote) => console.log(item.props, vote)}>
-                {images.map((image, index) => (
-                  <div
-                    className="flex h-[28rem] relative"
-                    key={index}
-                    style={{
-                      backgroundImage: `url(${image})`,
-                      backgroundPosition: 'center',
-                      backgroundSize: 'cover',
-                      backgroundRepeat: 'no-repeat',
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-white/25 dark:bg-gray-900/50" />
+        <section className="relative flex flex-col flex-1 place-items-center">
+          <div className="grid flex-1 p-4 place-items-center">
+            <CardStack onVote={(item, vote) => console.log(item.props, vote)}>
+              {images.map((image, index) => (
+                <div
+                  className="relative flex aspect-w-10 aspect-h-10"
+                  key={index}
+                  style={{
+                    backgroundImage: `url(${image})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                  }}
+                >
+                  <div className="absolute inset-0 bg-white/25 dark:bg-gray-900/50" />
 
-                    <div className="relative flex flex-1 bg-gradient-to-br from-black/10 to-black/90">
-                      <div className="flex items-center justify-between p-6 mt-auto">
-                        <h2 className="text-2xl font-medium text-white">
-                          Coconut Chicken Curry
-                        </h2>
+                  <div className="absolute inset-0 flex flex-1 bg-gradient-to-br from-black/10 to-black/90">
+                    <div className="flex items-center justify-between p-6 mt-auto">
+                      <h2 className="text-2xl font-medium text-white">
+                        Coconut Chicken Curry
+                      </h2>
 
-                        <IconButton
-                          className="absolute right-4 bottom-4"
-                          icon={(cn) => (
-                            <InformationCircleIcon className={cn} />
-                          )}
-                          variant="secondary"
-                          flat
-                        />
-                      </div>
+                      <IconButton
+                        className="absolute right-4 bottom-4"
+                        icon={(cn) => <InformationCircleIcon className={cn} />}
+                        variant="secondary"
+                        flat
+                      />
                     </div>
                   </div>
-                ))}
-              </CardStack>
+                </div>
+              ))}
+            </CardStack>
+          </div>
+
+          <footer className="flex items-center justify-between w-full max-w-xl row-span-1 py-4 mx-auto mt-6 space-x-3">
+            <div className="space-x-3">
+              <IconButton
+                icon={(cn) => <ReplyIcon className={cn} />}
+                variant="secondary"
+                flat
+              />
+
+              <IconButton
+                icon={(cn) => <RefreshIcon className={cn} />}
+                variant="secondary"
+                flat
+              />
             </div>
 
-            <footer className="flex items-center justify-between w-full max-w-md mx-auto mt-6 space-x-3">
-              <div className="space-x-3">
-                <IconButton
-                  icon={(cn) => <ReplyIcon className={cn} />}
-                  variant="secondary"
-                  flat
-                />
+            <div className="space-x-3">
+              <IconButton
+                icon={(cn) => <XIcon className={cn} />}
+                variant="secondary"
+                flat
+              />
 
-                <IconButton
-                  icon={(cn) => <RefreshIcon className={cn} />}
-                  variant="secondary"
-                  flat
-                />
-              </div>
-
-              <div className="space-x-3">
-                <IconButton
-                  icon={(cn) => <XIcon className={cn} />}
-                  variant="secondary"
-                  flat
-                />
-
-                <IconButton
-                  icon={(cn) => <StarIcon className={cn} />}
-                  variant="secondary"
-                  flat
-                />
-              </div>
-            </footer>
-          </section>
-        </div>
-      </AppLayout>
-    </>
+              <IconButton
+                icon={(cn) => <StarIcon className={cn} />}
+                variant="secondary"
+                flat
+              />
+            </div>
+          </footer>
+        </section>
+      </div>
+    </AppLayout>
   )
 }
 

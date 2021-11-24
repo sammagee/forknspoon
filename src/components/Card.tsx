@@ -81,7 +81,7 @@ const Card: FC<Props> = ({ children, drag, onVote, id }) => {
   return (
     <motion.div
       animate={controls}
-      className="!absolute w-full max-w-md z-50"
+      className="!absolute w-full max-w-xl z-50"
       drag={drag}
       dragConstraints={constrained && { left: 0, right: 0, top: 0, bottom: 0 }}
       dragElastic={1}
@@ -108,27 +108,3 @@ const Card: FC<Props> = ({ children, drag, onVote, id }) => {
 }
 
 export default Card
-
-// const Card: FC<Props> = ({ children, index }) => {
-//   const displayClasses =
-//     {
-//       0: 'relative scale-100 z-30',
-//       1: 'absolute translate-x-6 scale-95 z-20',
-//       2: 'absolute translate-x-12 scale-90 z-10',
-//     }[index] || 'hidden'
-
-//   return (
-//     <motion.div
-//       className={clsx(
-//         'w-full max-w-md py-56 bg-white shadow-lg rounded-xl',
-//         displayClasses
-//       )}
-//       onTap={(event) => event.preventDefault()}
-//       whileTap={{ scale: index === 0 ? 1.05 : 1 }}
-//     >
-//       {children}
-//     </motion.div>
-//   )
-// }
-
-// export default Card

@@ -1,4 +1,4 @@
-import { UserAddIcon } from '@heroicons/react/solid'
+import { LoginIcon } from '@heroicons/react/solid'
 import type { NextPage } from 'next'
 import { useState } from 'react'
 import Button from '../components/Button'
@@ -15,7 +15,7 @@ const Register: NextPage = () => {
   const [errors, setErrors] = useState<string[]>([])
 
   return (
-    <GuestLayout>
+    <GuestLayout title="Login">
       <AuthForm onSubmit={() => login({ email, password, setErrors })}>
         <Input
           id="email"
@@ -41,9 +41,9 @@ const Register: NextPage = () => {
           className="!mt-4"
           block
           variant="secondary"
-          icon={(cn) => <UserAddIcon className={cn} />}
+          icon={(cn) => <LoginIcon className={cn} />}
         >
-          Register
+          Login
         </Button>
       </AuthForm>
     </GuestLayout>
