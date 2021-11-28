@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.zinc,
-        brand: colors.red,
+        brand: colors.green,
       },
       fontFamily: {
         sans: [
@@ -29,6 +29,9 @@ module.exports = {
           'Noto Color Emoji',
         ],
       },
+      maxHeight: (theme) => ({
+        ...theme('maxWidth'),
+      }),
       maxWidth: {
         '2xs': '14rem',
       },

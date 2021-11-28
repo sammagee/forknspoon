@@ -15,6 +15,7 @@ const IconButton: FC<IconButtonProps> = ({
   flat = false,
   icon,
   variant = ButtonVariant.Primary,
+  ...buttonProps
 }) => {
   return (
     <button
@@ -24,6 +25,7 @@ const IconButton: FC<IconButtonProps> = ({
         !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
         className
       )}
+      {...buttonProps}
     >
       {typeof icon === 'function' ? icon('w-6 h-6') : icon ? icon : children}
     </button>

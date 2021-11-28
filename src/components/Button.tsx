@@ -13,6 +13,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   block?: boolean
   className?: string
   children: ReactChild[] | ReactChild | string
+  disabled?: boolean
   flat?: boolean
   icon?: ((className: string) => ReactNode) | ReactNode
   variant?: ButtonVariantType
@@ -24,7 +25,7 @@ export const buttonClasses =
 export const buttonColors = (variant: ButtonVariantType) =>
   ({
     [ButtonVariant.Primary]:
-      'text-white bg-gray-900 active:opacity-75 hover:opacity-75',
+      'text-white bg-black active:opacity-75 hover:opacity-75',
     [ButtonVariant.Secondary]:
       'text-gray-900 dark:text-white text-opacity-50 dark:text-opacity-50 bg-gray-900 bg-opacity-3 dark:bg-black dark:bg-opacity-20 hover:bg-opacity-5 dark:hover:bg-opacity-25 hover:text-opacity-75 dark:hover:text-opacity-75',
     [ButtonVariant.Tertiary]:
@@ -35,9 +36,11 @@ const Button: FC<ButtonProps> = ({
   block,
   className,
   children,
+  disabled,
   flat = false,
   icon,
   variant = ButtonVariant.Primary,
+  ...buttonProps
 }) => {
   return (
     <button
@@ -46,8 +49,11 @@ const Button: FC<ButtonProps> = ({
         buttonColors(variant),
         !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
         block && 'w-full',
+        disabled && 'opacity-50 cursor-not-allowed',
         className
       )}
+      disabled={disabled}
+      {...buttonProps}
     >
       <div className="flex items-center justify-between flex-1">
         <span>{children}</span>

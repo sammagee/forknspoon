@@ -11,9 +11,9 @@ type RadioGroupOption = {
 interface RadioGroupProps {
   label?: string
   description?: string
-  onChange(value: RadioGroupOption): void
+  onChange(value: string): void
   options: RadioGroupOption[]
-  value: RadioGroupOption
+  value: string | null
 }
 
 const RadioGroup: VFC<RadioGroupProps> = ({
@@ -41,7 +41,7 @@ const RadioGroup: VFC<RadioGroupProps> = ({
           <HRadioGroup.Option
             key={idx}
             as="button"
-            value={option}
+            value={option.value}
             className={({ checked }) =>
               clsx(
                 'flex-1 relative items-center justify-center px-4 py-2 cursor-pointer transform flex focus:outline-none rounded-lg transition duration-150 ease-in-out focus-visible:ring focus-visible:ring-opacity-3',
