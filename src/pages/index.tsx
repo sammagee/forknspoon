@@ -1,12 +1,16 @@
 import type { NextPage } from 'next'
+import PageLoader from '../components/PageLoader'
 import { useAuth } from '../hooks/useAuth'
 import App from '../views/App'
 import Landing from '../views/Landing'
 
 const Home: NextPage = () => {
-  const { isLoggedIn } = useAuth()
+  const { user, error } = useAuth()
 
-  return isLoggedIn ? <App /> : <Landing />
+  if (error) return <Landing />
+  if (!user) return <PageLoader />
+
+  return <App />
 }
 
 export default Home

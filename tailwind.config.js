@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.zinc,
-        brand: colors.red,
+        brand: colors.green,
       },
       fontFamily: {
         sans: [
@@ -28,6 +28,12 @@ module.exports = {
           'Segoe UI Symbol',
           'Noto Color Emoji',
         ],
+      },
+      maxHeight: (theme) => ({
+        ...theme('maxWidth'),
+      }),
+      maxWidth: {
+        '2xs': '14rem',
       },
       opacity: {
         3: '0.03',
@@ -54,5 +60,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/aspect-ratio')],
 }

@@ -1,13 +1,23 @@
-import { FC, useState } from 'react'
-import preferences from '../../config/preferences'
+import { FC } from 'react'
 import Button from '../components/Button'
+import LoadingIndicator from '../components/LoadingIndicator'
+import Logo from '../components/Logo'
 import RadioGroup from '../components/RadioGroup'
 import Select from '../components/Select'
+import configPreferences from '../config/preferences'
+import { usePreferences } from '../hooks/usePreferences'
 
-const Preferences: FC = () => {
-  const [diningOption, setDiningOption] = useState(preferences.diningOptions[0])
-  const [cuisine, setCuisine] = useState(preferences.cuisines[0])
-  const [restriction, setRestriction] = useState(preferences.restrictions[0])
+interface PreferencesProps {
+  fetch(): void
+  isLoading: boolean
+}
+
+const Preferences: FC<PreferencesProps> = ({ fetch, isLoading }) => {
+  const [preferences, dispatchPreference] = usePreferences()
+  const setPreference = (
+    key: keyof typeof configPreferences,
+    value: string | null
+  ) => dispatchPreference({ key, value })
 
   return (
     <aside className="flex-col hidden w-full max-w-xs px-4 py-4 bg-gray-100 dark:bg-gray-800 lg:flex">
@@ -21,9 +31,19 @@ const Preferences: FC = () => {
         <RadioGroup
           label="Dining Option"
           description="Are we eating in or out today?"
-          onChange={setDiningOption}
-          options={preferences.diningOptions}
-          value={diningOption}
+          onChange={(value) => setPreference('diningOptions', value)}
+          options={configPreferences.diningOptions}
+          value={preferences.diningOptions}
+        />
+      </div>
+
+      <div className="mt-3">
+        <Select
+          label="Meal"
+          description="What meal will it be?"
+          onChange={(value) => setPreference('mealTypes', value)}
+          options={configPreferences.mealTypes}
+          value={preferences.mealTypes}
         />
       </div>
 
@@ -31,24 +51,46 @@ const Preferences: FC = () => {
         <Select
           label="Cuisine"
           description="What sort of cuisine would you like?"
-          onChange={setCuisine}
-          options={preferences.cuisines}
-          value={cuisine}
+          onChange={(value) => setPreference('cuisines', value)}
+          options={configPreferences.cuisines}
+          value={preferences.cuisines}
         />
       </div>
 
       <div className="mt-3">
         <Select
           label="Dietary Restrictions"
-          description="Any dietary restrictions?"
-          onChange={setRestriction}
-          options={preferences.restrictions}
-          value={restriction}
+          description="Are you on a diet?"
+          onChange={(value) => setPreference('diets', value)}
+          options={configPreferences.diets}
+          value={preferences.diets}
+        />
+      </div>
+
+      <div className="mt-3">
+        <Select
+          label="Health Restrictions"
+          description="Any health restrictions?"
+          onChange={(value) => setPreference('restrictions', value)}
+          options={configPreferences.restrictions}
+          value={preferences.restrictions}
         />
       </div>
 
       <div className="flex flex-col justify-end flex-1">
-        <Button icon="logo">Let&apos;s eat</Button>
+        <Button
+          disabled={isLoading}
+          icon={(cn) =>
+            !isLoading ? (
+              <Logo className={cn} />
+            ) : (
+              <LoadingIndicator size={cn} />
+            )
+          }
+          onClick={fetch}
+        >
+          Let&apos;s eat
+        </Button>
       </div>
     </aside>
   )

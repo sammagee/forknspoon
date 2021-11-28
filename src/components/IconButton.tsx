@@ -1,12 +1,9 @@
 import clsx from 'clsx'
 import { FC, ReactElement } from 'react'
 import { buttonColors, ButtonProps, ButtonVariant } from './Button'
-import Icon, { IconName } from './Icon'
 
 export type IconButtonProps = Omit<ButtonProps, 'children'> & {
   children?: ReactElement[] | ReactElement
-  iconClassName?: string
-  name?: IconName
 }
 
 export const iconButtonClasses =
@@ -15,10 +12,10 @@ export const iconButtonClasses =
 const IconButton: FC<IconButtonProps> = ({
   children,
   className,
-  iconClassName,
   flat = false,
-  name,
+  icon,
   variant = ButtonVariant.Primary,
+  ...buttonProps
 }) => {
   return (
     <button
@@ -28,12 +25,9 @@ const IconButton: FC<IconButtonProps> = ({
         !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
         className
       )}
+      {...buttonProps}
     >
-      {name ? (
-        <Icon className={clsx('w-6 h-6', iconClassName)} name={name} />
-      ) : (
-        children
-      )}
+      {typeof icon === 'function' ? icon('w-6 h-6') : icon ? icon : children}
     </button>
   )
 }

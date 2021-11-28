@@ -1,38 +1,32 @@
-import { Children, FC, useState } from 'react'
+import clsx from 'clsx'
+import uniqueId from 'lodash/uniqueId'
+import { VFC } from 'react'
+import useMedia from 'react-use/lib/useMedia'
+import 'swiper/css'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import Card from './Card'
 
-interface Props {
-  onVote(item: any, vote: boolean): void
+interface CardStackProps {
+  items: any[]
 }
 
-const CardStack: FC<Props> = ({ children, onVote }) => {
-  const [stack, setStack] = useState(Children.toArray(children))
-
-  const pop = (array: any[]) =>
-    array.filter((_, index) => index < array.length - 1)
-
-  const handleVote = (item: any, vote: boolean) => {
-    let newStack = pop(stack)
-    setStack(newStack)
-    onVote(item, vote)
-  }
+const CardStack: VFC<CardStackProps> = ({ items }) => {
+  const isMd = useMedia('(min-width: 768px)')
 
   return (
-    <div className="z-10 flex items-center justify-center flex-1 w-full h-full overflow-hidden">
-      {stack.map((item: any, index: number) => {
-        let isTop = index === stack.length - 1
-
-        return (
-          <Card
-            drag={isTop} // Only top card is draggable
-            key={item.key || index}
-            onVote={(result) => handleVote(item, result)}
-          >
-            {item}
-          </Card>
-        )
-      })}
-    </div>
+    <Swiper
+      className={clsx('w-full h-full', !isMd && '!p-7')}
+      slidesPerView={isMd ? 2 : 1}
+      spaceBetween={64}
+      centeredSlides
+      grabCursor
+    >
+      {items.map((item) => (
+        <SwiperSlide key={uniqueId()} className="flex">
+          {({ isActive }) => <Card isActive={isActive} item={item} />}
+        </SwiperSlide>
+      ))}
+    </Swiper>
   )
 }
 
