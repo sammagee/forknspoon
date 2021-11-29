@@ -50,7 +50,7 @@ const IFrameModal: VFC<IFrameModalProps> = ({
 
               <iframe
                 title={title}
-                className="w-[calc(100vw-6rem)] h-[calc(100vh-6rem)]"
+                className="w-[calc(100vw-3rem)] h-[calc(100vh-3rem)] lg:w-[calc(100vw-6rem)] lg:h-[calc(100vh-6rem)]"
                 src={src}
               />
             </div>
