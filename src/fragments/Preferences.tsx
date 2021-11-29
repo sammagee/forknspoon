@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react'
+import { FC, useRef } from 'react'
 import Sheet, { SheetRef } from 'react-modal-sheet'
 import { useMedia } from 'react-use'
 import Button from '../components/Button'
@@ -17,7 +17,6 @@ interface PreferencesProps {
 
 const Preferences: FC<PreferencesProps> = ({ fetch, isLoading }) => {
   const isLg = useMedia('(min-width: 1024px)')
-  const [isOpen, setOpen] = useState(false)
   const ref = useRef<SheetRef>()
   const snapTo = (i: number) => ref.current?.snapTo(i)
   const [preferences, dispatchPreference] = usePreferences()

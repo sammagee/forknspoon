@@ -7,12 +7,12 @@ import IconButton from './IconButton'
 import IFrameModal from './IFrameModal'
 import LoadingIndicator from './LoadingIndicator'
 
-interface CardProps {
+interface RecipeCardProps {
   isActive: boolean
   item: any
 }
 
-const Card: VFC<CardProps> = ({ isActive, item }) => {
+const RecipeCard: VFC<RecipeCardProps> = ({ isActive, item }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
 
@@ -96,4 +96,4 @@ const Card: VFC<CardProps> = ({ isActive, item }) => {
   )
 }
 
-export default Card
+export default RecipeCard

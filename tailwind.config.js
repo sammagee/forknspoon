@@ -4,9 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: {
     files: ['./src/**/*.{js,ts,jsx,tsx}'],
-    safelist: [
-      { pattern: /react-modal-sheet|swiper/, variants: ['hover', 'focus'] },
-    ],
+    safelist: [{ pattern: /react-modal-sheet|swiper/ }],
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
@@ -14,6 +12,10 @@ module.exports = {
       colors: {
         gray: colors.zinc,
         brand: colors.emerald,
+      },
+      cursor: {
+        grab: 'grab',
+        grabbing: 'grabbing',
       },
       fontFamily: {
         sans: [
