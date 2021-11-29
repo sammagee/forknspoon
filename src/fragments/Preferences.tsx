@@ -115,7 +115,7 @@ const Preferences: FC<PreferencesProps> = ({ fetch, isLoading }) => {
       ref={ref}
       snapPoints={[600, 400, 105]}
       initialSnap={2}
-      onClose={() => snapTo(1)}
+      onClose={() => snapTo(2)}
       isOpen
     >
       <Sheet.Container>
