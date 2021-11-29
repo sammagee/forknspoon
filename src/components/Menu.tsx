@@ -58,7 +58,7 @@ const Menu: FC<MenuProps> = ({
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
         >
-          <HMenu.Items>
+          <HMenu.Items className="focus:outline-none">
             <div className="overflow-hidden rounded-lg shadow-lg">
               <div className="p-1 text-gray-900 bg-white dark:bg-gray-600 dark:text-gray-200">
                 {children}
