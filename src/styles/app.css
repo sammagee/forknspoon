@@ -8,7 +8,7 @@
   }
 
   .react-modal-sheet-drag-indicator {
-    @apply !bg-gray-100 dark:!bg-gray-700;
+    @apply !bg-gray-100 dark:!bg-gray-700 cursor-grab active:cursor-grabbing;
   }
 
   .react-modal-sheet-content {

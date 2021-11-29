@@ -6,14 +6,14 @@ import EmptyResults from '../components/EmptyResults'
 import SkeletonCardStack from '../components/SkeletonCardStack'
 import { PreferencesContext } from '../contexts/PreferencesContext'
 import Preferences from '../fragments/Preferences'
-import { useRecipes } from '../hooks/useRecipes'
+import { useDiscovery } from '../hooks/useDiscovery'
 import AppLayout from '../layouts/app/Layout'
 import { fetchPreferences } from '../lib/preferences'
 import { preferencesReducer } from '../reducers/preferences'
 
 const App: VFC = () => {
   const preferences = useReducer(preferencesReducer, fetchPreferences())
-  const { isLoading, fetchRecipes, recipes } = useRecipes(preferences[0])
+  const { isLoading, fetch, items } = useDiscovery(preferences[0])
   const isMd = useMedia('(min-width: 768px)')
 
   return (
@@ -27,7 +27,7 @@ const App: VFC = () => {
         </Head>
 
         <div className="flex flex-1">
-          <Preferences fetch={fetchRecipes} isLoading={isLoading} />
+          <Preferences fetch={fetch} isLoading={isLoading} />
 
           <section className="relative flex flex-col flex-1">
             {isMd && (
@@ -35,9 +35,9 @@ const App: VFC = () => {
             )}
 
             <div className="grid flex-1 w-full place-items-center">
-              {!isLoading && !!recipes && <CardStack items={recipes} />}
+              {!isLoading && !!items && <CardStack items={items} />}
               {isLoading && <SkeletonCardStack />}
-              {!isLoading && !recipes && <EmptyResults />}
+              {!isLoading && !items && <EmptyResults />}
             </div>
 
             {isMd && (
