@@ -44,7 +44,7 @@ const RadioGroup: VFC<RadioGroupProps> = ({
             value={option.value}
             className={({ checked }) =>
               clsx(
-                'flex-1 relative items-center justify-center px-4 py-2 cursor-pointer transform flex focus:outline-none rounded-lg transition duration-150 ease-in-out focus-visible:ring focus-visible:ring-opacity-3',
+                'flex-1 relative items-center justify-center px-4 py-2 cursor-pointer transform flex focus:outline-none rounded-lg transition duration-150 ease-in-out focus-visible:ring',
                 checked
                   ? 'bg-white dark:bg-gray-600 shadow-sm'
                   : 'hover:bg-gray-900 hover:bg-opacity-3 dark:hover:bg-black dark:hover:bg-opacity-10 hover:scale-102 active:scale-98'

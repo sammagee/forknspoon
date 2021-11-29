@@ -15,7 +15,6 @@ type AnchorButtonProps = ButtonProps &
 const AnchorButton: VFC<AnchorButtonProps> = ({
   children,
   className,
-  flat = false,
   href,
   icon,
   variant = ButtonVariant.Primary,
@@ -24,12 +23,7 @@ const AnchorButton: VFC<AnchorButtonProps> = ({
   return (
     <Link href={href}>
       <a
-        className={clsx(
-          buttonClasses,
-          buttonColors(variant),
-          !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
-          className
-        )}
+        className={clsx(buttonClasses, buttonColors(variant), className)}
         {...anchorProps}
       >
         <div className="flex items-center justify-between flex-1">

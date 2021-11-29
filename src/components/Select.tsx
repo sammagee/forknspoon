@@ -40,7 +40,7 @@ const Select: VFC<SelectProps> = ({
       <div className="relative mt-1">
         <HListbox.Button
           className={clsx(
-            'relative flex items-center justify-between w-full h-12 px-5 text-sm text-left text-gray-900 dark:text-gray-300 transition duration-150 ease-in-out origin-bottom transform bg-gray-900 dark:bg-black dark:bg-opacity-20 cursor-pointer rounded-xl bg-opacity-3 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50 hover:bg-opacity-5 dark:hover:bg-opacity-25 hover:scale-102 active:scale-98'
+            'relative flex items-center justify-between w-full h-12 px-5 text-sm text-left text-gray-900 dark:text-gray-300 transition duration-150 ease-in-out origin-bottom transform bg-gray-900 dark:bg-black dark:bg-opacity-20 cursor-pointer rounded-xl bg-opacity-3 focus:outline-none focus-visible:ring hover:bg-opacity-5 dark:hover:bg-opacity-25 hover:scale-102 active:scale-98'
           )}
         >
           <span className="font-medium truncate">
