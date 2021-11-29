@@ -32,7 +32,7 @@ const SavedRecipe: VFC<SavedRecipeProps> = ({ mutate, recipe }) => {
     <>
       <article
         key={recipe.id}
-        className="flex items-center justify-between px-6 py-4"
+        className="flex items-center justify-between px-6 py-4 space-x-4"
       >
         <div>
           <h3 className="text-xl font-medium text-gray-400">{recipe.label}</h3>

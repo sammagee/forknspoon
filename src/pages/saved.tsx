@@ -13,7 +13,7 @@ const Saved: VFC = () => {
 
   return !isLoading ? (
     <AppLayout>
-      <section className="w-full max-w-3xl px-4 mx-auto my-32">
+      <section className="w-full max-w-3xl px-4 mx-auto my-6 lg:my-32">
         <header className="flex flex-row-reverse items-center justify-between lg:justify-start lg:space-x-4 lg:-ml-20 lg:flex-row">
           <div className="grid w-16 h-16 bg-black rounded-full bg-opacity-10 place-items-center">
             <HeartIcon className="w-8 h-8 text-gray-500" />
