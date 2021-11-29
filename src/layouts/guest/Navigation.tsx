@@ -9,7 +9,6 @@ const Navigation: FC = () => {
       <div className="flex items-center space-x-2">
         <AnchorIconButton
           href="/"
-          flat
           variant="secondary"
           className="w-20 h-20 rounded-2xl"
           icon={<Logo className="w-10 h-10" />}
@@ -17,11 +16,11 @@ const Navigation: FC = () => {
       </div>
 
       <div className="flex items-center justify-end space-x-2">
-        <AnchorButton href="/login" flat variant="tertiary">
+        <AnchorButton href="/login" variant="tertiary">
           Login
         </AnchorButton>
 
-        <AnchorButton href="/register" flat variant="secondary">
+        <AnchorButton href="/register" variant="secondary">
           Register
         </AnchorButton>
       </div>

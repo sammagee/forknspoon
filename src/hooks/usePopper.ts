@@ -1,9 +1,6 @@
 import { createPopper, Options } from '@popperjs/core'
 import { RefCallback, useCallback, useMemo, useRef } from 'react'
 
-/**
- * Example implementation to use Popper: https://popper.js.org/
- */
 export const usePopper = (
   options?: Partial<Options>
 ): [RefCallback<Element | null>, RefCallback<HTMLElement | null>] => {

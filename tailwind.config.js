@@ -2,13 +2,18 @@ const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: {
+    files: ['./src/**/*.{js,ts,jsx,tsx}'],
+    safelist: [
+      { pattern: /react-modal-sheet|swiper/, variants: ['hover', 'focus'] },
+    ],
+  },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
         gray: colors.zinc,
-        brand: colors.green,
+        brand: colors.emerald,
       },
       fontFamily: {
         sans: [
@@ -39,16 +44,13 @@ module.exports = {
         3: '0.03',
       },
       ringColor: (theme) => ({
-        DEFAULT: theme('colors.gray.500'),
+        DEFAULT: theme('colors.brand.500'),
       }),
-      ringOffsetWidth: {
-        DEFAULT: '0',
+      ringOpacity: {
+        DEFAULT: '1',
       },
-      ringOpacity: (theme) => ({
-        DEFAULT: theme('opacity.50'),
-      }),
       ringWidth: {
-        DEFAULT: '2px',
+        DEFAULT: '1px',
       },
       scale: {
         98: '0.98',

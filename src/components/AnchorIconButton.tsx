@@ -11,7 +11,6 @@ type AnchorIconButtonProps = IconButtonProps &
 const AnchorIconButton: FC<AnchorIconButtonProps> = ({
   children,
   className,
-  flat = false,
   href,
   icon,
   variant = ButtonVariant.Primary,
@@ -20,12 +19,7 @@ const AnchorIconButton: FC<AnchorIconButtonProps> = ({
   return (
     <Link href={href}>
       <a
-        className={clsx(
-          iconButtonClasses,
-          buttonColors(variant),
-          !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
-          className
-        )}
+        className={clsx(iconButtonClasses, buttonColors(variant), className)}
         {...anchorProps}
       >
         {typeof icon === 'function' ? icon('w-6 h-6') : icon ? icon : children}

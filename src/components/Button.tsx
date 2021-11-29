@@ -14,13 +14,12 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   className?: string
   children: ReactChild[] | ReactChild | string
   disabled?: boolean
-  flat?: boolean
   icon?: ((className: string) => ReactNode) | ReactNode
   variant?: ButtonVariantType
 }
 
 export const buttonClasses =
-  'inline-flex items-center justify-center h-12 px-5 font-medium transition duration-150 ease-in-out origin-bottom transform hover:scale-102 active:scale-98 rounded-xl focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50'
+  'inline-flex items-center justify-center h-12 px-5 font-medium transition duration-150 ease-in-out origin-bottom transform hover:scale-102 active:scale-98 rounded-xl focus:outline-none focus:ring'
 
 export const buttonColors = (variant: ButtonVariantType) =>
   ({
@@ -37,7 +36,6 @@ const Button: FC<ButtonProps> = ({
   className,
   children,
   disabled,
-  flat = false,
   icon,
   variant = ButtonVariant.Primary,
   ...buttonProps
@@ -47,7 +45,6 @@ const Button: FC<ButtonProps> = ({
       className={clsx(
         buttonClasses,
         buttonColors(variant),
-        !flat && 'shadow-sm hover:shadow-md active:shadow-sm',
         block && 'w-full',
         disabled && 'opacity-50 cursor-not-allowed',
         className

@@ -35,7 +35,7 @@ const Toggle: VFC<ToggleProps> = ({
           checked={value}
           onChange={handleChange}
           className={clsx(
-            'relative inline-flex items-center h-8 rounded-lg w-14 transition-colors focus:outline-none',
+            'relative inline-flex items-center h-8 rounded-lg w-14 transition-colors focus:outline-none focus:ring',
             value
               ? 'bg-brand-500'
               : 'bg-gray-300 bg-opacity-20 dark:bg-black dark:bg-opacity-20'

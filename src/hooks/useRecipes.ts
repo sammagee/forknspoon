@@ -11,8 +11,8 @@ export const useRecipes = (preferences: any) => {
     setIsLoading(true)
     axios
       .get('/recipes', { params: preferences })
-      .then((res: Response<{ hits: { recipe: Recipe }[] }>) => {
-        setRecipes(res.data.hits.map((hit) => hit.recipe))
+      .then((res: Response<Recipe[]>) => {
+        setRecipes(res.data)
         setIsLoading(false)
       })
   }
