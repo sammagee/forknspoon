@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { FC, useReducer } from 'react'
+import { useReducer, VFC } from 'react'
 import useMedia from 'react-use/lib/useMedia'
 import CardStack from '../components/CardStack'
 import SkeletonCardStack from '../components/SkeletonCardStack'
@@ -11,7 +11,7 @@ import AppLayout from '../layouts/app/Layout'
 import { fetchPreferences } from '../lib/preferences'
 import { preferencesReducer } from '../reducers/preferences'
 
-const App: FC = () => {
+const App: VFC = () => {
   const preferences = useReducer(preferencesReducer, fetchPreferences())
   const { isLoading, fetchRecipes, recipes } = useRecipes(preferences[0])
   const isMd = useMedia('(min-width: 768px)')
@@ -31,7 +31,7 @@ const App: FC = () => {
 
           <section className="relative flex flex-col flex-1">
             {isMd && (
-              <div className="absolute inset-y-0 left-0 z-10 w-48 bg-gradient-to-r from-gray-50 dark:from-gray-900" />
+              <div className="absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-gray-50 dark:from-gray-900" />
             )}
 
             <div className="grid flex-1 w-full place-items-center">
@@ -39,13 +39,13 @@ const App: FC = () => {
               {isLoading && <SkeletonCardStack />}
               {!isLoading && !recipes && (
                 <div className="grid w-full h-full max-w-sm p-12 m-4 bg-black rounded-full place-items-center max-h-sm bg-opacity-10">
-                  <PreferencesIllustration className="w-full h-full mt-14" />
+                  <PreferencesIllustration className="w-full h-full mt-12" />
                 </div>
               )}
             </div>
 
             {isMd && (
-              <div className="absolute inset-y-0 right-0 z-10 w-48 bg-gradient-to-l from-gray-50 dark:from-gray-900" />
+              <div className="absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-gray-50 dark:from-gray-900" />
             )}
           </section>
         </div>

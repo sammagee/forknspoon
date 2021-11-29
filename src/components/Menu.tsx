@@ -13,9 +13,9 @@ export const MenuItem: FC<MenuItemProps> = ({ children, onClick }) => {
       {({ active }) => (
         <button
           className={clsx(
-            'flex items-center justify-between space-x-2 w-full px-4 py-2 text-left text-gray-300 rounded-lg font-medium',
+            'flex items-center justify-between space-x-2 w-full px-4 py-2 text-left text-gray-600 dark:text-gray-300 rounded-lg font-medium focus:outline-none',
             active &&
-              'bg-gray-900 bg-opacity-3 hover:bg-black hover:bg-opacity-20'
+              'bg-gray-900 bg-opacity-3 dark:hover:bg-black dark:hover:bg-opacity-20'
           )}
           onClick={onClick}
         >

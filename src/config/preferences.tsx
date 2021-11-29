@@ -2,6 +2,8 @@ import { DocumentTextIcon, OfficeBuildingIcon } from '@heroicons/react/solid'
 import { Preferences } from '../types/Preferences'
 
 const preferences: Preferences = {
+  search: null,
+
   cuisines: [
     { display: 'Any', value: null },
     { display: 'American', value: 'American' },

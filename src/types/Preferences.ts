@@ -7,6 +7,7 @@ export interface Preference {
 }
 
 export interface Preferences {
+  search: string | null
   cuisines: Preference[]
   diets: Preference[]
   diningOptions: Preference[]
