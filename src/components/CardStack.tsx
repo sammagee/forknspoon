@@ -4,7 +4,9 @@ import { VFC } from 'react'
 import useMedia from 'react-use/lib/useMedia'
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Card from './Card'
+import { usePreferences } from '../hooks/usePreferences'
+import RecipeCard from './RecipeCard'
+import RestaurantCard from './RestaurantCard'
 
 interface CardStackProps {
   items: any[]
@@ -12,6 +14,7 @@ interface CardStackProps {
 
 const CardStack: VFC<CardStackProps> = ({ items }) => {
   const isMd = useMedia('(min-width: 768px)')
+  const [preferences] = usePreferences()
 
   return (
     <Swiper
@@ -23,7 +26,13 @@ const CardStack: VFC<CardStackProps> = ({ items }) => {
     >
       {items.map((item) => (
         <SwiperSlide key={uniqueId()} className="flex">
-          {({ isActive }) => <Card isActive={isActive} item={item} />}
+          {({ isActive }) =>
+            preferences.diningOptions === 'recipe' ? (
+              <RecipeCard isActive={isActive} item={item} />
+            ) : (
+              <RestaurantCard isActive={isActive} item={item} />
+            )
+          }
         </SwiperSlide>
       ))}
     </Swiper>
