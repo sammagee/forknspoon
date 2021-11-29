@@ -1,7 +1,7 @@
-import { InformationCircleIcon } from '@heroicons/react/outline'
+import { ExternalLinkIcon } from '@heroicons/react/outline'
 import clsx from 'clsx'
-import { useState, VFC } from 'react'
-import IconButton from './IconButton'
+import { VFC } from 'react'
+import AnchorIconButton from './AnchorIconButton'
 
 interface RestaurantCardProps {
   isActive: boolean
@@ -9,8 +9,6 @@ interface RestaurantCardProps {
 }
 
 const RestaurantCard: VFC<RestaurantCardProps> = ({ isActive, item }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-
   return (
     <div
       className={clsx(
@@ -33,23 +31,18 @@ const RestaurantCard: VFC<RestaurantCardProps> = ({ isActive, item }) => {
           </div>
 
           <div className="flex space-x-4">
-            <IconButton
+            <AnchorIconButton
+              href={`https://www.google.com/maps/search/?api=1&query=${item.name}&query_place_id=${item.place_id}`}
               icon={(cn) => (
-                <InformationCircleIcon className={clsx('text-gray-300', cn)} />
+                <ExternalLinkIcon className={clsx('text-gray-300', cn)} />
               )}
+              rel="noopener noreferrer"
+              target="_blank"
               variant="secondary"
-              onClick={() => setModalIsOpen(true)}
             />
           </div>
         </div>
       </div>
-
-      {/* <IFrameModal
-        isOpen={modalIsOpen}
-        setIsOpen={setModalIsOpen}
-        src={item.url}
-        title={`${item.label} Recipe Details`}
-      /> */}
     </div>
   )
 }
