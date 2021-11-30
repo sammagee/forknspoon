@@ -5,13 +5,13 @@ import Logo from '../../components/Logo'
 
 const Navigation: FC = () => {
   return (
-    <nav className="flex items-center justify-between w-full h-48 px-4 mx-auto max-w-7xl">
+    <nav className="flex items-center justify-between w-full h-32 px-8 mx-auto md:h-48 max-w-7xl">
       <div className="flex items-center space-x-2">
         <AnchorIconButton
           href="/"
           variant="secondary"
-          className="w-20 h-20 rounded-2xl"
-          icon={<Logo className="w-10 h-10" />}
+          className="w-16 h-16 md:w-20 md:h-20 rounded-2xl"
+          icon={<Logo className="w-7 h-7 md:w-10 md:h-10" />}
         />
       </div>
 

@@ -17,7 +17,7 @@ const GuestLayout: FC<GuestLayoutProps> = ({ children, title }) => {
 
       <Navigation />
 
-      <main>{children}</main>
+      <main className="w-full px-8 mx-auto max-w-7xl">{children}</main>
     </div>
   )
 }
