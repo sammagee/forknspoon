@@ -7,10 +7,6 @@ const Landing: FC = () => {
     <GuestLayout>
       <Head>
         <title>Fork &amp; Spoon</title>
-        <meta
-          name="description"
-          content="Eliminate your food indecisiveness, save and share recipes, and more."
-        />
       </Head>
 
       <section className="grid py-32 md:py-48 lg:py-64 place-items-center">

@@ -13,7 +13,7 @@ const Navigation: FC = () => {
   const isLg = useMedia('(min-width: 1024px)')
 
   return (
-    <nav className="flex items-center justify-between w-full h-20 px-4 bg-gray-100 lg:bg-gray-200 dark:bg-gray-800 lg:dark:bg-gray-700 lg:py-4 lg:h-screen lg:w-20 lg:flex-col">
+    <nav className="fixed z-50 flex items-center justify-between w-full lg:w-auto p-4 bg-gray-100 standalone:border-t-[2.75rem] standalone:border-gray-800 lg:bg-gray-200 dark:bg-gray-800 lg:dark:bg-gray-700 lg:h-screen lg:flex-col">
       <div className="flex items-center space-x-3 lg:space-x-0 lg:space-y-3 lg:flex-col">
         <AnchorIconButton href="/" variant="secondary">
           <Logo className="w-6 h-6" />

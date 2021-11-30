@@ -112,7 +112,7 @@ const Preferences: FC<PreferencesProps> = ({ fetch, isLoading }) => {
   ) : (
     <Sheet
       ref={ref}
-      snapPoints={[600, 400, 105]}
+      snapPoints={[600, 400, 120]}
       initialSnap={2}
       onClose={() => snapTo(2)}
       isOpen
@@ -140,8 +140,8 @@ const Preferences: FC<PreferencesProps> = ({ fetch, isLoading }) => {
             <div className="absolute inset-x-0 h-4 top-full bg-gradient-to-b from-white dark:from-gray-800" />
           </div>
 
-          <div className="mt-4 space-y-3">
-            <div className="mt-4">
+          <div className="mt-8 space-y-3 border-t border-gray-100 dark:border-gray-700">
+            <div className="mt-8">
               <RadioGroup
                 label="Dining Option"
                 description="Are we eating in or out today?"

@@ -7,7 +7,7 @@ export type IconButtonProps = Omit<ButtonProps, 'children'> & {
 }
 
 export const iconButtonClasses =
-  'inline-flex items-center justify-center h-12 w-12 transition duration-150 ease-in-out origin-bottom transform hover:scale-102 active:scale-98 rounded-xl focus:outline-none focus-visible:ring'
+  'inline-flex items-center select-none justify-center h-12 w-12 transition duration-150 ease-in-out origin-bottom transform hover:scale-102 active:scale-98 rounded-xl focus:outline-none focus-visible:ring'
 
 const IconButton: FC<IconButtonProps> = ({
   children,

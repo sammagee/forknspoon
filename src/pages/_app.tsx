@@ -37,20 +37,14 @@ const App = ({ Component, pageProps }: AppProps) => {
           content="food, restaurant, recipe, discover, decide, find, pick, breakfast, lunch, dinner, supper, snack"
         />
         <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta
           name="viewport"
           content="initial-scale=1, viewport-fit=cover, user-scalable=no"
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="theme-color"
-          content="#18181B"
-          media="(prefers-color-scheme: dark)"
-        />
-        <meta
-          name="theme-color"
-          content="#FFFFFF"
-          media="(prefers-color-scheme: light)"
-        />
 
         <link rel="manifest" href="/pwa/site.webmanifest" />
 

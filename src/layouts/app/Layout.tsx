@@ -13,11 +13,24 @@ const AppLayout: FC<AppLayoutProps> = ({ children, title }) => {
     <div className="flex flex-col w-screen min-h-screen overflow-hidden lg:flex-row">
       <Head>
         <title>{titleTemplate}</title>
+
+        <meta
+          name="theme-color"
+          content="#27272A"
+          media="(prefers-color-scheme: dark)"
+        />
+        <meta
+          name="theme-color"
+          content="#F4F4F5"
+          media="(prefers-color-scheme: light)"
+        />
       </Head>
 
       <Navigation />
 
-      <main className="flex flex-1">{children}</main>
+      <main className="flex flex-1 mt-20 standalone:mt-[7.75rem]">
+        {children}
+      </main>
     </div>
   )
 }

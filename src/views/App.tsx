@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { useReducer, VFC } from 'react'
 import useMedia from 'react-use/lib/useMedia'
 import CardStack from '../components/CardStack'
@@ -19,13 +18,6 @@ const App: VFC = () => {
   return (
     <PreferencesContext.Provider value={preferences}>
       <AppLayout>
-        <Head>
-          <meta
-            name="description"
-            content="Eliminate your food indecisiveness, save and share recipes, and more."
-          />
-        </Head>
-
         <div className="flex flex-1">
           <Preferences fetch={fetch} isLoading={isLoading} />
 

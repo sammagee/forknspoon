@@ -58,6 +58,9 @@ module.exports = {
         98: '0.98',
         102: '1.02',
       },
+      screens: {
+        standalone: { raw: '(display-mode: standalone)' },
+      },
     },
     fill: (theme) => theme('colors'),
   },
