@@ -20,6 +20,8 @@ class Document extends NextDocument {
         className="font-sans dark:antialiased selection:bg-gray-500 selection:bg-opacity-10"
       >
         <Head>
+          <meta charSet="utf-8" />
+
           <link
             href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
             rel="stylesheet"
