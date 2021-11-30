@@ -41,7 +41,8 @@ const App = ({ Component, pageProps }: AppProps) => {
           content="initial-scale=1, viewport-fit=cover, user-scalable=no"
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content="#10B981" />
+        <meta name="theme-color" content="#18181B" media="(prefers-color-scheme: dark)">
+        <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 
         <link rel="manifest" href="/pwa/site.webmanifest" />
 
