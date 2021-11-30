@@ -120,7 +120,7 @@ const Preferences: FC<PreferencesProps> = ({ fetch, isLoading }) => {
       <Sheet.Container>
         <Sheet.Header />
 
-        <Sheet.Content>
+        <Sheet.Content disableDrag>
           <div className="sticky top-0 z-10 w-full bg-white dark:bg-gray-800">
             <Button
               className="sticky top-0 z-10 w-full"
@@ -137,7 +137,7 @@ const Preferences: FC<PreferencesProps> = ({ fetch, isLoading }) => {
               Let&apos;s eat
             </Button>
 
-            <div className="absolute inset-x-0 h-4 top-full bg-gradient-to-b from-white dark:from-gray-800" />
+            <div className="absolute inset-x-0 h-8 top-full bg-gradient-to-b from-white dark:from-gray-800" />
           </div>
 
           <div className="mt-8 space-y-3 border-t border-gray-100 dark:border-gray-700">
