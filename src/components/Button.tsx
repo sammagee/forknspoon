@@ -19,7 +19,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 }
 
 export const buttonClasses =
-  'inline-flex items-center select-none justify-center h-12 px-5 font-medium transition duration-150 ease-in-out origin-bottom transform hover:scale-102 active:scale-98 rounded-xl focus:outline-none focus:ring'
+  'inline-flex items-center select-none relative justify-center h-12 px-5 font-medium transition duration-150 ease-in-out origin-bottom transform hover:scale-102 active:scale-98 rounded-xl focus:outline-none focus:ring'
 
 export const buttonColors = (variant: ButtonVariantType) =>
   ({

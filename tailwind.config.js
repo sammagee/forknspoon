@@ -13,6 +13,9 @@ module.exports = {
         gray: colors.zinc,
         brand: colors.emerald,
       },
+      boxShadow: (theme) => ({
+        glow: `0 0 6px ${theme('colors.brand.500')}`,
+      }),
       cursor: {
         grab: 'grab',
         grabbing: 'grabbing',

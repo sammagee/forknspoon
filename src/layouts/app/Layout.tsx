@@ -28,7 +28,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children, title }) => {
 
       <Navigation />
 
-      <main className="flex flex-1 mt-20 standalone:mt-[7.75rem]">
+      <main className="flex flex-1 mt-20 lg:mt-0 lg:ml-20 standalone:mt-[7.75rem]">
         {children}
       </main>
     </div>
