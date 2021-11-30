@@ -1,8 +1,8 @@
 import { Request } from '../Request'
 
-export interface LoginRequest extends Request {
+export interface ResetPasswordRequest extends Request {
   email: string
   password: string
-  remember?: boolean
+  password_confirmation: string
   setStatus(status: string | null): void
 }

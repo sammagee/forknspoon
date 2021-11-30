@@ -1,3 +1,3 @@
 export interface Request {
-  setErrors(errors: string[]): void
+  setErrors(errors: string[] | null): void
 }

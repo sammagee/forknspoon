@@ -29,13 +29,13 @@ const Saved: VFC = () => {
             ))}
           </div>
         ) : (
-          <div className="mt-6">
+          <div className="mt-8">
             <p className="text-lg font-medium text-gray-500">
               You&apos;ll need to save some recipes before they show up here!
             </p>
 
             <AnchorButton
-              className="mt-6"
+              className="mt-12"
               icon={(cn) => <Logo className={clsx('ml-3', cn)} />}
               href="/"
             >

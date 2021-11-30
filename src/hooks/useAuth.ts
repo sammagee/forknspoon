@@ -3,8 +3,10 @@ import { useEffect } from 'react'
 import useSWR from 'swr'
 import axios from '../lib/axios'
 import { Error } from '../types/Error'
+import { ForgotPasswordRequest } from '../types/Requests/ForgotPasswordRequest'
 import { LoginRequest } from '../types/Requests/LoginRequest'
 import { RegisterRequest } from '../types/Requests/RegisterRequest'
+import { ResetPasswordRequest } from '../types/Requests/ResetPasswordRequest'
 import { Response } from '../types/Response'
 import { User } from '../types/User'
 
@@ -22,7 +24,7 @@ export const useAuth = ({
       .get('/user')
       .then((res: Response<User>) => res.data)
       .catch((error: Error) => {
-        if (error.response.status !== 409) throw error
+        if (error.response.status !== 403) throw error
 
         router.push('/verify-email')
       })
@@ -33,68 +35,75 @@ export const useAuth = ({
   const register = async ({ setErrors, ...props }: RegisterRequest) => {
     await csrf()
 
+    setErrors(null)
+
     axios
       .post('/register', props)
+      .then(() => mutate())
       .catch((error: Error) => {
         if (error.response.status !== 422) throw error
 
-        setErrors(Object.values(error.response.data.errors))
+        setErrors(Object.values(error.response.data.errors).flat())
       })
-      .then(() => mutate())
   }
 
-  const login = async ({ setErrors, ...props }: LoginRequest) => {
+  const login = async ({ setErrors, setStatus, ...props }: LoginRequest) => {
     await csrf()
+
+    setStatus(null)
+    setErrors(null)
 
     axios
       .post('/login', props)
+      .then(() => mutate())
       .catch((error: Error) => {
         if (error.response.status !== 422) throw error
 
-        setErrors(Object.values(error.response.data.errors))
+        setErrors(Object.values(error.response.data.errors).flat())
       })
-      .then(() => mutate())
   }
 
   const forgotPassword = async ({
     setErrors,
     setStatus,
     email,
-  }: {
-    setErrors(errors: string[]): void
-    setStatus(status: string): void
-    email: string
-  }) => {
+  }: ForgotPasswordRequest) => {
     await csrf()
+
+    setStatus(null)
+    setErrors(null)
 
     axios
       .post('/forgot-password', { email })
+      .then((response) => setStatus(response.data.status))
       .catch((error: Error) => {
         if (error.response.status !== 422) throw error
 
-        setErrors(Object.values(error.response.data.errors))
+        setErrors(Object.values(error.response.data.errors).flat())
       })
-      .then((response) => setStatus(response?.data.status))
   }
 
   const resetPassword = async ({
     setErrors,
     setStatus,
     ...props
-  }: {
-    setErrors(errors: string[]): void
-    setStatus(status: string): void
-  }) => {
+  }: ResetPasswordRequest) => {
     await csrf()
 
     axios
       .post('/reset-password', { token: router.query.token, ...props })
+      .then((response) =>
+        router.push(
+          `/login?reset=${Buffer.from(response.data.status, 'utf8').toString(
+            'base64'
+          )}`
+        )
+      )
       .catch((error: Error) => {
         if (error.response.status !== 422) throw error
 
         setErrors(Object.values(error.response.data.errors))
       })
-      .then((response) => setStatus(response?.data.status))
   }
 
   const resendEmailVerification = ({

@@ -15,6 +15,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   children: ReactChild[] | ReactChild | string
   disabled?: boolean
   icon?: ((className: string) => ReactNode) | ReactNode
+  type?: 'submit' | 'button'
   variant?: ButtonVariantType
 }
 

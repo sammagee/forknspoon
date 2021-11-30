@@ -1,40 +1,43 @@
 import { UserAddIcon } from '@heroicons/react/solid'
 import type { NextPage } from 'next'
-import { useState } from 'react'
-import Button from '../components/Button'
-import Input from '../components/Input'
-import { useAuth } from '../hooks/useAuth'
-import AuthForm from '../layouts/guest/AuthForm'
-import GuestLayout from '../layouts/guest/Layout'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import Button from '../../components/Button'
+import Input from '../../components/Input'
+import { useAuth } from '../../hooks/useAuth'
+import AuthForm from '../../layouts/guest/AuthForm'
+import GuestLayout from '../../layouts/guest/Layout'
 
-const Register: NextPage = () => {
-  const { register } = useAuth({ middleware: 'guest' })
+const PasswordReset: NextPage = () => {
+  const router = useRouter()
 
-  const [name, setName] = useState('')
+  const { resetPassword } = useAuth({ middleware: 'guest' })
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [password_confirmation, setPasswordConfirmation] = useState('')
   const [errors, setErrors] = useState<string[] | null>(null)
+  const [status, setStatus] = useState<string | null>(null)
+
+  useEffect(() => {
+    setEmail((router.query.email as string) || '')
+  }, [router.query.email])
 
   return (
-    <GuestLayout title="Register">
+    <GuestLayout title="Reset Password">
       <AuthForm
         errors={errors}
+        status={status}
         onSubmit={() =>
-          register({ name, email, password, password_confirmation, setErrors })
+          resetPassword({
+            email,
+            password,
+            password_confirmation,
+            setErrors,
+            setStatus,
+          })
         }
       >
-        <Input
-          id="name"
-          label="Name"
-          type="text"
-          handleInput={setName}
-          value={name}
-          autoComplete="name"
-          required
-          autoFocus
-        />
-
         <Input
           id="email"
           label="Email"
@@ -70,11 +73,11 @@ const Register: NextPage = () => {
           block
           icon={(cn) => <UserAddIcon className={cn} />}
         >
-          Register
+          Reset Password
         </Button>
       </AuthForm>
     </GuestLayout>
   )
 }
 
-export default Register
+export default PasswordReset
