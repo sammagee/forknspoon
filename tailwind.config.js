@@ -13,6 +13,9 @@ module.exports = {
         gray: colors.zinc,
         brand: colors.emerald,
       },
+      animation: {
+        beat: 'beat 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
       boxShadow: (theme) => ({
         glow: `0 0 6px ${theme('colors.brand.500')}`,
       }),
@@ -38,6 +41,12 @@ module.exports = {
           'Segoe UI Symbol',
           'Noto Color Emoji',
         ],
+      },
+      keyframes: {
+        beat: {
+          '0%, 40%, 80%, 100%': { transform: 'scale(1)' },
+          '20%, 60%': { transform: 'scale(1.15)' },
+        },
       },
       maxHeight: (theme) => ({
         ...theme('maxWidth'),
