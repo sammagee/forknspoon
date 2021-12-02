@@ -49,7 +49,7 @@ const Menu: FC<MenuProps> = ({
         {button}
       </HMenu.Button>
 
-      <div ref={container} className="z-50 w-screen max-w-2xs">
+      <div ref={container} className="z-10 w-screen max-w-2xs">
         <Transition
           enter="transition duration-200 ease-out"
           enterFrom="transform scale-95 opacity-0"

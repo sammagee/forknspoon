@@ -5,7 +5,7 @@ import Logo from '../../components/Logo'
 
 const Navigation: FC = () => {
   return (
-    <header className="fixed top-0 z-50 w-full">
+    <header className="fixed top-0 z-40 w-full">
       <nav className="flex items-center justify-between w-full p-8 mx-auto lg:py-16 max-w-7xl standalone:border-t-[2.75rem] standalone:border-gray-900 bg-gray-50 dark:bg-gray-900">
         <div className="flex items-center space-x-2">
           <AnchorIconButton
