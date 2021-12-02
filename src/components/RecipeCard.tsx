@@ -1,10 +1,10 @@
-import { HeartIcon, InformationCircleIcon } from '@heroicons/react/outline'
+import { ExternalLinkIcon, HeartIcon } from '@heroicons/react/outline'
 import { ClockIcon, HashtagIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import { useState, VFC } from 'react'
 import axios from '../lib/axios'
+import AnchorIconButton from './AnchorIconButton'
 import IconButton from './IconButton'
-import IFrameModal from './IFrameModal'
 import LoadingIndicator from './LoadingIndicator'
 
 interface RecipeCardProps {
@@ -13,7 +13,6 @@ interface RecipeCardProps {
 }
 
 const RecipeCard: VFC<RecipeCardProps> = ({ isActive, item }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
 
   const saveRecipe = () => {
@@ -63,12 +62,14 @@ const RecipeCard: VFC<RecipeCardProps> = ({ isActive, item }) => {
           </div>
 
           <div className="flex space-x-4">
-            <IconButton
+            <AnchorIconButton
+              href={item.url}
               icon={(cn) => (
-                <InformationCircleIcon className={clsx('text-gray-300', cn)} />
+                <ExternalLinkIcon className={clsx('text-gray-300', cn)} />
               )}
+              rel="noopener noreferrer"
+              target="_blank"
               variant="secondary"
-              onClick={() => setModalIsOpen(true)}
             />
 
             <IconButton
@@ -85,13 +86,6 @@ const RecipeCard: VFC<RecipeCardProps> = ({ isActive, item }) => {
           </div>
         </div>
       </div>
-
-      <IFrameModal
-        isOpen={modalIsOpen}
-        setIsOpen={setModalIsOpen}
-        src={item.url}
-        title={`${item.label} Recipe Details`}
-      />
     </div>
   )
 }

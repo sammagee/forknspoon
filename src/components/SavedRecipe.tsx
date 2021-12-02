@@ -1,15 +1,15 @@
 import {
   ClockIcon,
+  ExternalLinkIcon,
   HashtagIcon,
   HeartIcon,
-  InformationCircleIcon,
 } from '@heroicons/react/outline'
 import clsx from 'clsx'
 import { useState, VFC } from 'react'
 import axios from '../lib/axios'
 import { Recipe } from '../types/Recipe'
+import AnchorIconButton from './AnchorIconButton'
 import IconButton from './IconButton'
-import IFrameModal from './IFrameModal'
 import LoadingIndicator from './LoadingIndicator'
 
 interface SavedRecipeProps {
@@ -60,12 +60,14 @@ const SavedRecipe: VFC<SavedRecipeProps> = ({ mutate, recipe }) => {
 
         <div>
           <div className="flex items-center space-x-4">
-            <IconButton
+            <AnchorIconButton
+              href={recipe.url}
               icon={(cn) => (
-                <InformationCircleIcon className={clsx('text-gray-300', cn)} />
+                <ExternalLinkIcon className={clsx('text-gray-300', cn)} />
               )}
+              rel="noopener noreferrer"
+              target="_blank"
               variant="secondary"
-              onClick={() => setModalIsOpen(true)}
             />
 
             <IconButton
@@ -82,13 +84,6 @@ const SavedRecipe: VFC<SavedRecipeProps> = ({ mutate, recipe }) => {
           </div>
         </div>
       </article>
-
-      <IFrameModal
-        isOpen={modalIsOpen}
-        setIsOpen={setModalIsOpen}
-        src={recipe.url}
-        title={`${recipe.label} Recipe Details`}
-      />
     </>
   )
 }
