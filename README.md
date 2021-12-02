@@ -11,6 +11,17 @@ Please ensure the following dependencies are installed before starting the proje
 - [Node.js](https://nodejs.org/en/)
 - Yarn: `npm install --global yarn`
 
+Copy the environment file and update it to match your settings:
+
+```bash
+cp .env.example .env.local
+```
+
+```shell
+// .env.local
+NEXT_PUBLIC_BACKEND_URL=http://localhost
+```
+
 ## Usage
 
 Start the dev server—this should start the dev server on [`localhost:3000`](http://localhost:3000):
