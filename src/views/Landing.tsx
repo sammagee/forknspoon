@@ -76,7 +76,7 @@ const Landing: FC = () => {
         <section className="w-full py-64 mt-64 border-t border-gray-200 dark:border-gray-800">
           <div className="space-y-32">
             <div className="flex flex-col items-center justify-between space-y-8 md:space-x-16 md:flex-row">
-              <div className="grid w-full p-12 mx-auto bg-black rounded-full md:max-w-xs aspect-1 place-items-center bg-opacity-10">
+              <div className="grid p-12 mx-auto bg-black rounded-full h-80 w-80 place-items-center bg-opacity-10">
                 <RecipeIllustration className="grid w-full h-full place-items-center" />
               </div>
               <div className="flex-1 space-y-4 lg:!mr-96">
@@ -101,12 +101,12 @@ const Landing: FC = () => {
                   restaurant that is similar to ones you already know and enjoy.
                 </p>
               </div>
-              <div className="grid w-full p-12 mx-auto bg-black rounded-full md:max-w-xs aspect-1 place-items-center bg-opacity-10">
+              <div className="grid p-12 mx-auto bg-black rounded-full h-80 w-80 place-items-center bg-opacity-10">
                 <RestaurantIllustration className="grid w-full h-full place-items-center" />
               </div>
             </div>
             <div className="flex flex-col items-center justify-between space-y-8 md:space-x-16 md:flex-row">
-              <div className="grid w-full p-12 mx-auto bg-black rounded-full md:max-w-xs aspect-1 place-items-center bg-opacity-10">
+              <div className="grid p-12 mx-auto bg-black rounded-full h-80 w-80 place-items-center bg-opacity-10">
                 <PreferencesIllustration className="grid w-full h-full place-items-center" />
               </div>
               <div className="flex-1 space-y-4 lg:!mr-96">
@@ -129,7 +129,7 @@ const Landing: FC = () => {
           </div>
         </section>
 
-        <footer className="flex items-center justify-between w-full pt-64 mt-64 space-x-6 border-t border-gray-200 dark:border-gray-800">
+        <footer className="flex items-center justify-between w-full pt-16 mt-16 space-x-6 border-t border-gray-200 dark:border-gray-800">
           <p className="text-gray-500">
             &copy; Fork &amp; Spoon {new Date().getFullYear()}
           </p>
