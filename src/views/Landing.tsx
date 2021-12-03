@@ -75,7 +75,7 @@ const Landing: FC = () => {
 
         <section className="w-full py-64 mt-64 border-t border-gray-200 dark:border-gray-800">
           <div className="space-y-32">
-            <div className="flex flex-col items-center justify-between space-y-8 md:space-x-16 md:flex-row">
+            <div className="flex flex-col items-center justify-between space-y-16 md:space-y-0 md:space-x-16 md:flex-row">
               <div className="grid p-12 mx-auto bg-black rounded-full h-80 w-80 place-items-center bg-opacity-10">
                 <RecipeIllustration className="grid w-full h-full place-items-center" />
               </div>
@@ -90,8 +90,8 @@ const Landing: FC = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col-reverse items-center justify-between space-y-8 md:space-x-16 md:flex-row">
-              <div className="flex-1 space-y-4 lg:!ml-96">
+            <div className="flex flex-col-reverse items-center justify-between space-y-16 md:space-y-0 md:space-x-16 md:flex-row">
+              <div className="flex-1 space-y-4 lg:!ml-96 mt-16 md:mt-0">
                 <h2 className="text-4xl font-medium text-gray-700 dark:text-gray-400">
                   Restaurants
                 </h2>
@@ -105,7 +105,7 @@ const Landing: FC = () => {
                 <RestaurantIllustration className="grid w-full h-full place-items-center" />
               </div>
             </div>
-            <div className="flex flex-col items-center justify-between space-y-8 md:space-x-16 md:flex-row">
+            <div className="flex flex-col items-center justify-between space-y-16 md:space-y-0 md:space-x-16 md:flex-row">
               <div className="grid p-12 mx-auto bg-black rounded-full h-80 w-80 place-items-center bg-opacity-10">
                 <PreferencesIllustration className="grid w-full h-full place-items-center" />
               </div>
